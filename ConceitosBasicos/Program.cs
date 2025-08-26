@@ -32,11 +32,46 @@ catch (Exception e)
     Console.WriteLine(e.StackTrace);
 }
 */
+
 using ConceitosBasicos.uteis;
+int opcao;
+do
+{
+    Console.WriteLine("[0] - sair");
+    Console.WriteLine("[1] - somar dois números");
+    Console.WriteLine("[2] - Converter metros para milimetros");
+    Console.WriteLine("[3] - Calcular aumento de salario");
+    Console.WriteLine("Escolha uma operação:");
+    opcao = int.Parse(Console.ReadLine());
 
-SomaDoisNumeros somaDoisNumeros = new SomaDoisNumeros();
-int resultado = somaDoisNumeros.Somar(20, 22);
-Console.WriteLine(resultado);
+    switch (opcao)
+    {
+        case 1:
 
-int milimetros = MetrosMilimetros.Converter(2);
-Console.WriteLine(milimetros);
+            SomaDoisNumeros somaDoisNumeros = new SomaDoisNumeros();
+            int resultado = somaDoisNumeros.Somar(20, 22);
+            Console.WriteLine(resultado);
+            break;
+
+        case 2:
+
+            int milimetros = MetrosMilimetros.Converter(2);
+            Console.WriteLine(milimetros);
+            break;
+
+        case 3:
+            CalculaAumento calculaAumento = new CalculaAumento();
+            Console.Write("informe o salário");
+            decimal salario = Convert.ToDecimal(Console.ReadLine());
+            Console.Write("informe o percentual de aumento:");
+            float percentual = float.Parse(Console.ReadLine());
+            decimal percentualAumento = calculaAumento.Calcular(salario, percentual);
+            Console.WriteLine($"Para o salário {salario:c2}, o aumento de {percentual:f2} corresponde a {percentualAumento}");
+            Console.WriteLine($"O novo salário é {salario + percentualAumento}");
+            break;
+        default:
+            Console.WriteLine("opcao invalida!");
+            break;
+    }
+}
+ while (opcao != 0) ;
