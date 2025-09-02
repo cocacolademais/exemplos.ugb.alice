@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConceitosBasicos.uteis
 {
-    class MetrosMilimetros
+   public class MetrosMilimetros
     {
         public static int Converter(int metros)
         {
